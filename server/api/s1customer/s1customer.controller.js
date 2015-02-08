@@ -4,7 +4,7 @@
 'use strict';
 
 
-var s1 = require("../../components/s1Services/s1.query");
+var s1 = require("../../components/s1services/s1.query");
 
 // Get list of customers
 exports.index = function (req, res) {

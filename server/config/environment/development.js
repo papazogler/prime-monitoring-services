@@ -28,5 +28,5 @@ module.exports = {
     appId: process.env.S1_APPID
   },
 
-  seedDB: false
+  seedDB: true
 };
