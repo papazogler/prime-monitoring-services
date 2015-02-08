@@ -40,11 +40,11 @@ angular.module('primeMonitoringServicesApp')
 
     $scope.getClass = function (cust) {
       if ($scope.user.s1data.id === cust.id) {
-        return "list-group-item active"
+        return 'list-group-item active';
       } else {
-        return "list-group-item"
+        return 'list-group-item';
       }
-    }
+    };
 
     $scope.select = function (cust) {
       $scope.user.s1data = cust;

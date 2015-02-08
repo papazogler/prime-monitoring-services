@@ -21,13 +21,13 @@ function requestWithEncoding(options, body, callback) {
     res.on('end', function () {
       var buffer = Buffer.concat(chunks);
       var encoding = res.headers['content-encoding'];
-      if (encoding == 'gzip') {
+      if (encoding === 'gzip') {
         zlib.gunzip(buffer, function (err, decoded) {
           var encoded = decoded && decoded.toString('binary');
           var text = windows1253.decode(encoded);
           callback(err, text);
         });
-      } else if (encoding == 'deflate') {
+      } else if (encoding === 'deflate') {
         zlib.inflate(buffer, function (err, decoded) {
           var text = windows1253.decode(decoded && decoded.toString('binary'));
           callback(err, text);

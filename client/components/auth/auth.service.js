@@ -60,7 +60,7 @@ angular.module('primeMonitoringServicesApp')
         var cb = callback || angular.noop;
 
         return User.save(user,
-          function(data) {
+          function(user) {
             return cb(user);
           },
           function(err) {

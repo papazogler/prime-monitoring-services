@@ -10,5 +10,5 @@ angular.module('primeMonitoringServicesApp')
       .when('/admin/createUser', {
         templateUrl: 'app/admin/createUser/createUser.html',
         controller: 'CreateUserCtrl'
-      })
+      });
   });

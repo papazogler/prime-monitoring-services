@@ -15,7 +15,7 @@ angular.module('primeMonitoringServicesApp')
       });
     };
 
-    $scope.create = function () {
+    $scope.create = function (user) {
       User.remove({id: user._id});
       angular.forEach($scope.users, function (u, i) {
         if (u === user) {
