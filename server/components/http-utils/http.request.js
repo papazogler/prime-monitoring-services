@@ -6,6 +6,7 @@ var zlib = require('zlib');
 var windows1253 = require('windows-1253');
 
 function requestWithEncoding(options, body, callback) {
+  console.log(options);
   var req = http.request(options);
 
   req.on('response', function (res) {
