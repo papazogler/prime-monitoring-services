@@ -23,6 +23,7 @@ var http = require("../http-utils/http.request");
           console.log(err);
         }
         else {
+          console.log(data);
           var loginRes = JSON.parse(data);
           if (!loginRes.success) {
             callback(loginRes.error);
@@ -40,6 +41,7 @@ var http = require("../http-utils/http.request");
               if (err) {
                 callback(err);
               } else {
+                console.log(data);
                 var authRes = JSON.parse(data);
                 if (!authRes.success) {
                   callback(authRes.error);
