@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('primeMonitoringServicesApp')
-  .controller('MainCtrl', function ($http) {
+  .controller('ShipListCtrl', function ($http) {
     var vm = this;
     vm.vessels = [];
 

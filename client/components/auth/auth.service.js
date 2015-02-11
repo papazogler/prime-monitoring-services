@@ -41,8 +41,6 @@ angular.module('primeMonitoringServicesApp')
 
       /**
        * Delete access token and user info
-       *
-       * @param  {Function}
        */
       logout: function() {
         $cookieStore.remove('token');
@@ -131,6 +129,10 @@ angular.module('primeMonitoringServicesApp')
        */
       isAdmin: function() {
         return currentUser.role === 'admin';
+      },
+
+      isShipHolder: function() {
+       return currentUser.role === 'user';
       },
 
       /**

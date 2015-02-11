@@ -17,7 +17,8 @@ module.exports = function (grunt) {
     cdnify: 'grunt-google-cdn',
     protractor: 'grunt-protractor-runner',
     injector: 'grunt-asset-injector',
-    buildcontrol: 'grunt-build-control'
+    buildcontrol: 'grunt-build-control',
+    shell: 'grunt-shell'
   });
 
   // Time how long tasks take. Can help when optimizing build times
@@ -32,6 +33,19 @@ module.exports = function (grunt) {
       // configurable paths
       client: require('./bower.json').appPath || 'client',
       dist: 'dist'
+    },
+    shell: {
+      mongodb: {
+        command: 'mongod --dbpath ./data/db',
+        options: {
+          stdout: true,
+          stderr: true,
+          failOnError: true,
+          execOptions: {
+            cwd: '.'
+          }
+        }
+      }
     },
     express: {
       options: {
@@ -518,6 +532,7 @@ module.exports = function (grunt) {
 
     if (target === 'debug') {
       return grunt.task.run([
+        //'shell:mongodb',
         'clean:server',
         'env:all',
         'concurrent:server',
@@ -529,6 +544,7 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
+      //'shell:mongodb',
       'clean:server',
       'env:all',
       'concurrent:server',

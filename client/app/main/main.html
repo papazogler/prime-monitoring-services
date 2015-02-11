@@ -1,41 +1,8 @@
-<div ng-include="'components/navbar/navbar.html'"></div>
-
 <header class="hero-unit" id="banner">
   <div class="container">
     <h1>Welcome to Prime Monitoring Services</h1>
   </div>
 </header>
-
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th class="col-md-4">Vessel</th>
-          <th class="col-md-1">Instruments Count</th>
-          <th class="col-md-1">Operative</th>
-          <th class="col-md-1">Defective</th>
-          <th class="col-md-1">In Service</th>
-          <th class="col-md-1">Certificate Renewal</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="vessel in vessels">
-          <td .col-md-4>{{vessel.Name}}</td>
-          <td .col-md-1>{{vessel.InstrumentsCount}}</td>
-          <td .col-md-1>{{vessel.Operative}}</td>
-          <td .col-md-1>{{vessel.Defective}}</td>
-          <td .col-md-1>{{vessel.InService}}</td>
-          <td .col-md-1>{{vessel.CertificateRenewal}}</td>
-        </tr>
-        </tbody>
-      </table>
-
-    </div>
-  </div>
-</div>
 
 <footer class="footer">
   <div class="container">
