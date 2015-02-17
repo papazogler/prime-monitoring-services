@@ -1,0 +1,15 @@
+<table class="table table-responsive table-striped table-bordered">
+  <thead>
+  <tr>
+    <th>Code</th>
+    <th>Name</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="serial in vm.instrument.spares">
+    <td>{{serial.code}}</td>
+    <td>{{serial.name}}</td>
+  </tr>
+  </tbody>
+</table>
+

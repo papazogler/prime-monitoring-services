@@ -24,6 +24,7 @@
       <link rel="stylesheet" href="app/admin/admin.css">
       <link rel="stylesheet" href="app/admin/createUser/createUser.css">
       <link rel="stylesheet" href="app/app.css">
+      <link rel="stylesheet" href="app/instrument/instrumentPage/instrumentPage.css">
       <link rel="stylesheet" href="app/main/main.css">
       <link rel="stylesheet" href="app/ship/instrumentList/instrumentList.css">
       <link rel="stylesheet" href="app/ship/shipList/shipList.css">
@@ -40,7 +41,7 @@
     <div ng-include="'components/navbar/navbar.html'"></div>
     <div class="row">
       <div ng-include="'components/menu/menu.html'"></div>
-    <div ng-view=""></div>
+    <div ui-view=""></div>
     </div>
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -65,9 +66,10 @@
       <script src="bower_components/angular-resource/angular-resource.js"></script>
       <script src="bower_components/angular-cookies/angular-cookies.js"></script>
       <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-      <script src="bower_components/angular-route/angular-route.js"></script>
       <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
+      <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+      <script src="bower_components/angular-ui-router-tabs/src/ui-router-tabs.js"></script>
       <!-- endbower -->
     <!-- endbuild -->
 
@@ -80,6 +82,8 @@
           <script src="app/admin/admin.controller.js"></script>
           <script src="app/admin/admin.js"></script>
           <script src="app/admin/createUser/createUser.controller.js"></script>
+          <script src="app/instrument/instrument.js"></script>
+          <script src="app/instrument/instrumentPage/instrumentPage.controller.js"></script>
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
           <script src="app/ship/instrumentList/instrumentList.controller.js"></script>

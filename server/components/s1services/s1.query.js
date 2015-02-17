@@ -25,7 +25,11 @@ function execute(query, callback) {
         }
         else {
           var parse = JSON.parse(data);
-          callback(parse.rows);
+          if(!parse.success) {
+            console.log(parse.error);
+          }else {
+            callback(parse.rows);
+          }
         }
       });
     }
@@ -60,7 +64,7 @@ function executeWithPaging(query, orderBy, page, maxcount, callback) {
   });
 }
 
-module.exports.execute = execute;
-module.exports.executeWithPaging = executeWithPaging;
+exports.execute = execute;
+exports.executeWithPaging = executeWithPaging;
 
 

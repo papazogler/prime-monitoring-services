@@ -13,7 +13,9 @@
         </thead>
         <tbody>
         <tr ng-repeat="instrument in vm.instruments">
-          <td>{{instrument.name}}</td>
+          <td>
+            <a ui-sref="instrument({id: instrument.instrumentId})" class="">{{instrument.name}}</a>
+          </td>
           <td>{{instrument.sncode}}</td>
           <td>{{instrument.certDate | date:'dd/MM/yyyy' }}</td>
           <td>{{instrument.status}}</td>

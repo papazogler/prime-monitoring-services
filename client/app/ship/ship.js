@@ -1,14 +1,16 @@
 'use strict';
 
 angular.module('primeMonitoringServicesApp')
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/ship', {
+  .config(function ($stateProvider) {
+    $stateProvider
+      .state('ships', {
+        url:'/ship',
         templateUrl: 'app/ship/shipList/shipList.html',
         controller: 'ShipListCtrl',
         controllerAs: 'vm'
       })
-      .when('/ship/:id', {
+      .state('ship', {
+        url:'/ship/:id',
         templateUrl: 'app/ship/instrumentList/instrumentList.html',
         controller: 'InstrumentListCtrl',
         controllerAs: 'vm'

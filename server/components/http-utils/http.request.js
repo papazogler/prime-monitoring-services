@@ -5,14 +5,45 @@ var http = require('http');
 var zlib = require('zlib');
 var windows1253 = require('windows-1253');
 
-function requestWithEncoding(options, body, callback) {
+exports.streamRequestWithEncoding = function (options, body, response) {
   console.log(options);
   var req = http.request(options);
 
   req.on('response', function (res) {
     console.log('STATUS: ' + res.statusCode);
     console.log('HEADERS: ' + JSON.stringify(res.headers));
-    //res.setEncoding('binary');
+
+    response.writeHead(res.statusCode, {
+      'Content-Length': res.headers['content-length'],
+      'Content-Type': res.headers['content-type'],
+      'Content-Encoding': res.headers['content-encoding']
+    });
+
+    res.on('data', function (chunk) {
+      response.write(chunk, 'binary');
+    });
+
+    res.on('end', function () {
+      response.end();
+    });
+  });
+
+  req.on('error', function (err) {
+    callback(err);
+  });
+
+  req.write(body, 'utf8');
+
+  req.end();
+};
+
+exports.requestWithEncoding = function requestWithEncoding(options, body, callback) {
+  console.log(options);
+  var req = http.request(options);
+
+  req.on('response', function (res) {
+    console.log('STATUS: ' + res.statusCode);
+    console.log('HEADERS: ' + JSON.stringify(res.headers));
 
     var chunks = [];
     res.on('data', function (chunk) {
@@ -22,20 +53,18 @@ function requestWithEncoding(options, body, callback) {
     res.on('end', function () {
       var buffer = Buffer.concat(chunks);
       var encoding = res.headers['content-encoding'];
+      var contentType = res.headers['content-type'];
+
       if (encoding === 'gzip') {
         zlib.gunzip(buffer, function (err, decoded) {
-          var encoded = decoded && decoded.toString('binary');
-          var text = windows1253.decode(encoded);
-          callback(err, text);
+          decode(err, contentType, decoded, callback);
         });
       } else if (encoding === 'deflate') {
         zlib.inflate(buffer, function (err, decoded) {
-          var text = windows1253.decode(decoded && decoded.toString('binary'));
-          callback(err, text);
+          decode(err, contentType, decoded, callback);
         })
       } else {
-        var text = windows1253.decode(buffer.toString('binary'));
-        callback(null, text);
+        decode(null, contentType, buffer, callback);
       }
     });
   });
@@ -47,6 +76,18 @@ function requestWithEncoding(options, body, callback) {
   req.write(body, 'utf8');
 
   req.end();
+};
+
+function decode(err, contentType, data, callback) {
+  if(err){
+    console.log(err);
+    callback(err, null);
+  }else {
+    if (contentType === 'image/jpeg') {
+      callback(null, data.toString('base64'));
+    }else{
+      callback(err, windows1253.decode(data && data.toString('binary')));
+    }
+  }
 }
 
-module.exports.requestWithEncoding = requestWithEncoding;

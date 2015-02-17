@@ -1,0 +1,12 @@
+<table class="table table-responsive table-striped table-bordered">
+  <thead>
+  <tr>
+    <th>Title</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="doc in vm.instrument.documents">
+    <td><a target="_self" href="{{doc.downloadLink}}" download="{{doc.name}}">{{doc.name}}</a></td>
+  </tr>
+  </tbody>
+</table>

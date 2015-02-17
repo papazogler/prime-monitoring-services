@@ -1,0 +1,23 @@
+<table class="table table-responsive table-striped table-bordered">
+  <thead>
+  <tr>
+    <th>Serial Number</th>
+    <th>Vessel</th>
+    <th>Certificate Expiry Date</th>
+    <th>Status</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr ng-repeat="serial in vm.instrument.serials">
+    <td>
+      <a ui-sref="instrument({id: serial.sncode})" class="">{{serial.sncode}}</a>
+    </td>
+    <td>
+      <a ui-sref="ship({id: serial.shipId})" class="">{{serial.shipName}}</a>
+    </td>
+    <td>{{serial.certDate | date:'dd/MM/yyyy' }}</td>
+    <td>{{serial.status}}</td>
+  </tr>
+  </tbody>
+</table>
+
