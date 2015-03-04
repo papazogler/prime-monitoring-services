@@ -3,6 +3,12 @@
 angular.module('primeMonitoringServicesApp')
   .config(function ($stateProvider) {
     $stateProvider
+      .state('model', {
+        url: '/instruments',
+        templateUrl: 'app/instrument/model/model.html',
+        controller: 'modelCtrl',
+        controllerAs: 'vm'
+      })
       .state('instrument', {
         url: '/instruments/:id',
         templateUrl: 'app/instrument/instrumentPage/instrumentPage.html',

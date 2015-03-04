@@ -3,6 +3,15 @@
 var s1query = require("../../components/s1services/s1.query");
 var s1file = require("../../components/s1services/s1.file");
 
+exports.index = function (req, res) {
+  var id = parseInt(req.user.s1data.id);
+
+  var q = 'select v.mtrl instrumentId, m.name, count( * ) instrumentsCount, sum( case f.CCCSTATUS when 3 then 1 else 0 end ) as operative, sum( case f.CCCSTATUS when 1 then 1 when 2 then 1 else 0 end ) as defective, sum( case f.CCCSTATUS when 5 then 1 else 0 end ) inService, sum( case when datediff(m, getdate(), f.date01) < 1 then 1 else 0 end ) certificateRenewal from (select d.mtrl, d.sncode, max(f1.findoc) findoc from mtrdoc d inner join FINDOC f1 on d.findoc = f1.findoc where d.sncode is not null group by d.mtrl, d.sncode) v inner join FINDOC f on f.findoc = v.findoc inner join mtrl m on v.mtrl = m.mtrl where f.trdr = ' + id + ' group by v.mtrl, m.name order by m.name';
+
+  s1query.execute(q, function (instruments) {
+    return res.json(instruments);
+  })
+};
 
 exports.show = function (req, res) {
   var instrumentId = req.params.id;

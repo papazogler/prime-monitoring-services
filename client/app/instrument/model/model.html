@@ -5,7 +5,7 @@
       <table class="table table-striped">
         <thead>
         <tr>
-          <th class="col-md-4">Vessel</th>
+          <th class="col-md-4">Instrument</th>
           <th class="col-md-1">Instruments Count</th>
           <th class="col-md-1">Operative</th>
           <th class="col-md-1">Defective</th>
@@ -14,15 +14,15 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="instrument in vm.vessels">
+        <tr ng-repeat="instrument in vm.instruments">
           <td>
-            <a ui-sref="ship({id: vessel.ShipId})" class="">{{instrument.Name}}</a>
+            <a ui-sref="instrument({id: instrument.instrumentId})" class="">{{instrument.name}}</a>
           </td>
-          <td>{{instrument.InstrumentsCount}}</td>
-          <td>{{instrument.Operative}}</td>
-          <td>{{instrument.Defective}}</td>
-          <td>{{instrument.InService}}</td>
-          <td>{{instrument.CertificateRenewal}}</td>
+          <td>{{instrument.instrumentsCount}}</td>
+          <td>{{instrument.operative}}</td>
+          <td>{{instrument.defective}}</td>
+          <td>{{instrument.inService}}</td>
+          <td>{{instrument.certificateRenewal}}</td>
         </tr>
         </tbody>
       </table>

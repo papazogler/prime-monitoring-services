@@ -6,6 +6,7 @@ var auth = require('../../auth/auth.service');
 
 var router = express.Router();
 
+router.get('/', auth.isAuthenticated(), controller.index);
 router.get('/:id', auth.isAuthenticated(), controller.show);
 router.get('/file/:fileId', auth.isAuthenticated(), controller.getFile);
 router.get('/:id/spares', auth.isAuthenticated(), controller.spares);
