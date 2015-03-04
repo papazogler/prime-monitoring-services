@@ -9,17 +9,19 @@ var User = require('../api/user/user.model');
 
 User.find({}).remove(function() {
   User.create({
-    provider: 'local',
-    name: 'Test User',
-    email: 'test@test.com',
-    password: 'test'
-  }, {
-    provider: 'local',
-    role: 'admin',
-    name: 'Admin',
-    email: 'admin@admin.com',
-    password: 'admin'
-  }, function() {
+      provider: 'local',
+      name: 'Test User',
+      username: 'test',
+      email: 'test@test.com',
+      password: 'test'
+    }, {
+      provider: 'local',
+      role: 'admin',
+      name: 'Admin',
+      username: 'admin',
+      email: 'admin@admin.com',
+      password: 'admin'
+    }, function () {
       console.log('finished populating users');
     }
   );

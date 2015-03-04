@@ -6,6 +6,7 @@ var crypto = require('crypto');
 
 var UserSchema = new Schema({
   name: String,
+  username: String,
   email: { type: String, lowercase: true },
   role: {
     type: String,
@@ -59,6 +60,12 @@ UserSchema
 /**
  * Validations
  */
+// Validate empty username
+UserSchema
+  .path('username')
+  .validate(function (username) {
+    return username.length;
+  }, 'username cannot be blank');
 
 // Validate empty email
 UserSchema
@@ -73,6 +80,21 @@ UserSchema
   .validate(function(hashedPassword) {
     return hashedPassword.length;
   }, 'Password cannot be blank');
+
+// Validate username is not taken
+UserSchema
+  .path('username')
+  .validate(function (value, respond) {
+    var self = this;
+    this.constructor.findOne({username: value}, function (err, user) {
+      if (err) throw err;
+      if (user) {
+        if (self.id === user.id) return respond(true);
+        return respond(false);
+      }
+      respond(true);
+    });
+  }, 'The specified username is already in use.');
 
 // Validate email is not taken
 UserSchema
