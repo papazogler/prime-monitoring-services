@@ -3,10 +3,10 @@
 angular.module('primeMonitoringServicesApp')
   .controller('InstrumentPageCtrl', function ($http, $stateParams, $cookieStore) {
     var vm = this;
-    vm.instrument = {};
 
     $http.get('/api/instruments/'+ $stateParams.id).success(function (instrument) {
       vm.instrument = instrument;
+      vm.instrument.id = $stateParams.id;
       vm.imageMissing = !vm.instrument.image;
       vm.showNotFound = !vm.imageMissing;
 

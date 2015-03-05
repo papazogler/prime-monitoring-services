@@ -15,14 +15,15 @@
         </thead>
         <tbody>
         <tr ng-repeat="instrument in vm.vessels">
+        <tr ng-repeat="vessel in vm.vessels">
           <td>
-            <a ui-sref="ship({id: vessel.ShipId})" class="">{{instrument.Name}}</a>
+            <a ui-sref="ship({id: vessel.ShipId})" class="">{{vessel.Name}}</a>
           </td>
-          <td>{{instrument.InstrumentsCount}}</td>
-          <td>{{instrument.Operative}}</td>
-          <td>{{instrument.Defective}}</td>
-          <td>{{instrument.InService}}</td>
-          <td>{{instrument.CertificateRenewal}}</td>
+          <td>{{vessel.InstrumentsCount}}</td>
+          <td>{{vessel.Operative}}</td>
+          <td>{{vessel.Defective}}</td>
+          <td>{{vessel.InService}}</td>
+          <td>{{vessel.CertificateRenewal}}</td>
         </tr>
         </tbody>
       </table>

@@ -30,5 +30,11 @@ angular.module('primeMonitoringServicesApp')
       .state('instrument.serials', {
         url: '/#serials',
         templateUrl: 'app/instrument/instrumentPage/instrumentPageSerials.html'
+      })
+      .state('logBook', {
+        url: '/instruments/:id/logbook/:sncode',
+        templateUrl: 'app/instrument/logBook/logBook.html',
+        controller: 'logBookCtrl',
+        controllerAs: 'vm'
       });
   });

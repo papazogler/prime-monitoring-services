@@ -10,7 +10,7 @@
   <tbody>
   <tr ng-repeat="serial in vm.instrument.serials">
     <td>
-      <a ui-sref="instrument({id: serial.sncode})" class="">{{serial.sncode}}</a>
+      <a ui-sref="logBook({id: vm.instrument.id, sncode: serial.sncode })" class="">{{serial.sncode}}</a>
     </td>
     <td>
       <a ui-sref="ship({id: serial.shipId})" class="">{{serial.shipName}}</a>

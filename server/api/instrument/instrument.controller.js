@@ -23,6 +23,7 @@ exports.show = function (req, res) {
     var imageid;
     for (var i = 0; i < instruments.length; i++) {
       instrument.name = instruments[i].name;
+      instrument.webpage = instruments[i].webpage;
       if (instruments[i].image) {
         imageid = instruments[i].image;
       }
@@ -62,6 +63,26 @@ exports.serials = function(req, res) {
     }
     return res.json(instruments);
   })
+};
+
+exports.logbook = function(req, res) {
+  var custId = parseInt(req.user.s1data.id);
+  var instrumentId = req.params.id;
+  var sncode = req.params.sncode;
+
+  var q = 'select m.name, f.findoc id, f.trndate date, s.CCCCUSTSHIP shipId ,s.name shipname, s.email, f.comments result, f.remarks notes from mtrl m left outer join mtrdoc d on m.mtrl = d.mtrl inner join FINDOC f on d.findoc = f.findoc inner join CCCCUSTSHIP s on f.CCCCUSTSHIP = s.CCCCUSTSHIP and f.trdr = s.trdr where s.trdr = ' + custId + ' and d.mtrl = ' + instrumentId + ' and d.sncode = \'' + sncode + '\'';
+
+  s1query.execute(q, function (logs) {
+    var instr = {};
+    if(!!logs) {
+      instr.name = logs[0].name;
+      for (var i = 0; i < logs.length; i++) {
+        logs[i].date = new Date(Date.parse(logs[i].date));
+      }
+      instr.logs = logs;
+    }
+    return res.json(instr);
+  });
 };
 
 
