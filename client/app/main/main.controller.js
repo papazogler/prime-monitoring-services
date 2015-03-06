@@ -2,11 +2,5 @@
 
 angular.module('primeMonitoringServicesApp')
   .controller('MainCtrl', function ($http) {
-    var vm = this;
-    vm.vessels = [];
-
-    $http.get('/api/ships').success(function (vessels) {
-      vm.vessels = vessels;
-    });
 
   });

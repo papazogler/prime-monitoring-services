@@ -27,7 +27,7 @@ angular.module('primeMonitoringServicesApp')
 
     $scope.search = function () {
 
-      $http.get('/api/customers/?name=' + $scope.searchText + '&page=' + $scope.searchPage).success(function (results) {
+      $scope.promise = $http.get('/api/customers/?name=' + $scope.searchText + '&page=' + $scope.searchPage).success(function (results) {
         $scope.totalItems = results.count;
         $scope.hidden = results.count === 0;
         $scope.custs = results.custs;

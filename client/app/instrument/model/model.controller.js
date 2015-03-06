@@ -5,7 +5,7 @@ angular.module('primeMonitoringServicesApp')
     var vm = this;
     vm.instruments = {};
 
-    $http.get('/api/instruments').success(function (instruments) {
+    vm.promise = $http.get('/api/instruments').success(function (instruments) {
       vm.instruments = instruments;
     });
 

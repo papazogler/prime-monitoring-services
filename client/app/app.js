@@ -6,8 +6,14 @@ angular.module('primeMonitoringServicesApp', [
   'ngSanitize',
   'ui.router',
   'ui.bootstrap',
-  'ui.router.tabs'
+  'ui.router.tabs',
+  'cgBusy'
 ])
+  .value('cgBusyDefaults', {
+    backdrop: true,
+    delay: 0,
+    minDuration: 500
+  })
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
       .otherwise( '/');
