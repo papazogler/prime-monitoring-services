@@ -7,17 +7,18 @@
     <div ng-switch-when="1" class="animate-switch">
       <h2>Select customer</h2>
 
+      <form>
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Search for..." ng-model="$parent.searchText">
               <span class="input-group-btn">
-                <button class="btn btn-default" type="button" ng-click="$parent.search()">
+                <button class="btn btn-default" type="submit" ng-click="$parent.search()">
                   <span class="glyphicon glyphicon-search"></span>
                 </button>
               </span>
         </div>
+      </form>
 
       <p>
-
       <div class="list-group" cg-busy="promise">
         <a ng-class="getClass(cust)" ng-click="select(cust)" ng-repeat="cust in custs">
           <strong>{{cust.name}}</strong>
