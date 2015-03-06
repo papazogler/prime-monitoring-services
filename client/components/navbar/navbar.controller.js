@@ -8,7 +8,7 @@ angular.module('primeMonitoringServicesApp')
       'link': '/'
     }];
 
-    vm.isCollapsed = true;
+    vm.isCollapsed = false;
     vm.isLoggedIn = Auth.isLoggedIn;
     vm.isAdmin = Auth.isAdmin;
     vm.isShipHolder = Auth.isShipHolder;

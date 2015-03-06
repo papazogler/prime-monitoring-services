@@ -1,14 +1,13 @@
-<div class="container" cg-busy="vm.promise">
+<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main" cg-busy="vm.promise">
   <h1>{{vm.instrument.name}}</h1>
   <div class="row">
-    <img ng-src="data:image/JPEG;base64,{{vm.instrument.image}}" ng-hide="vm.imageMissing" class="img-thumbnail" >
+    <img ng-src="data:image/JPEG;base64,{{vm.instrument.image}}" ng-hide="vm.imageMissing" class="img-thumbnail">
     <img src="assets/images/imageNotFound.jpg" ng-show="vm.imageMissing" class="img-thumbnail" >
   </div>
-  <br>
   <div class="row">
     <tabs class="nav nav-tabs nav-justified" data="vm.tabData" type='tabs'/>
   </div>
   <div class="row">
-      <ui-view autoscroll></ui-view>
+      <ui-view ></ui-view>
   </div>
 </div>
