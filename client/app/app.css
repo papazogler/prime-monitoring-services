@@ -37,3 +37,40 @@
     color: #000;
     padding: 0.2em 0;
 }
+
+.page-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-top: 50px;
+}
+
+.page-content {
+    margin-left: 267px;
+    padding: 50px;
+}
+
+.page-sidebar {
+    position: fixed;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    width: 267px;
+    display: block;
+    border-right: 1px solid #afccdb;
+    box-sizing: border-box;
+    background : -webkit-linear-gradient(#fafafa, #f0f0f0); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#fafafa, #f0f0f0); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#fafafa, #f0f0f0); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#fafafa, #f0f0f0); /* Standard syntax */
+}
+
+.page-sidebar-header {
+    margin: 0px;
+    padding: 15px 14px 15px 15px;
+    border-bottom: 1px solid #afccdb;
+    background-color: white;
+}
+
+

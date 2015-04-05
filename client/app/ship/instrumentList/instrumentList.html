@@ -1,28 +1,27 @@
-<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main" cg-busy="vm.promise">
-  <h1>{{vm.ShipName}}</h1>
-  <div class="row">
+<h1>{{vm.ShipName}}</h1>
+<div class="row" cg-busy="vm.promise">
     <div class="col-lg-12">
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th class="col-md-4">Instrument</th>
-          <th class="col-md-1">Serial Number</th>
-          <th class="col-md-1">Certificate Expiry Date</th>
-          <th class="col-md-1">Status</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="instrument in vm.instruments">
-          <td>
-            <a ui-sref="instrument({id: instrument.instrumentId})" class="">{{instrument.name}}</a>
-          </td>
-          <td>{{instrument.sncode}}</td>
-          <td>{{instrument.certDate | date:'dd/MM/yyyy' }}</td>
-          <td>{{instrument.status}}</td>
-        </tr>
-        </tbody>
-      </table>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th class="col-md-4">Instrument</th>
+                <th class="col-md-1">Serial Number</th>
+                <th class="col-md-1">Certificate Expiry Date</th>
+                <th class="col-md-1">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="instrument in vm.instruments">
+                <td>
+                    <a ui-sref="instrument({id: instrument.instrumentId})" class="">{{instrument.name}}</a>
+                </td>
+                <td>{{instrument.sncode}}</td>
+                <td>{{instrument.certDate | date:'dd/MM/yyyy' }}</td>
+                <td>{{instrument.status}}</td>
+            </tr>
+            </tbody>
+        </table>
 
     </div>
-  </div>
 </div>
+

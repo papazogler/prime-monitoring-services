@@ -1,4 +1,5 @@
-<div class="col-sm-3 col-md-1 sidebar collapse navbar-collapse" ng-class="{collapse: isCollapsed}" role="navigation" ng-controller="NavbarCtrl as vm">
+<div ng-class="{collapse: isCollapsed}" role="navigation" ng-controller="NavbarCtrl as vm">
+  <img src="../../assets/images/prime-logo.png" class="page-sidebar-header">
   <ul class="nav nav-sidebar nav-pils"><!--<ul class="nav navbar-nav side-nav">-->
     <li ng-show="vm.isAdmin()" ng-class="{active: vm.isActive('/admin')}"><a href="/admin">Admin</a></li>
     <li ng-show="vm.isShipHolder()" ng-class="{active: vm.isActive('/ship')}"><a ui-sref="ships">Ships</a></li>

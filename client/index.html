@@ -8,71 +8,68 @@
 <!--[if gt IE 8]><!-->
 <html class="no-js"> <!--<![endif]-->
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <base href="/">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-  <!-- build:css(client) app/vendor.css -->
-  <!-- bower:css -->
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
-  <link rel="stylesheet" href="bower_components/angular-busy/dist/angular-busy.css" />
-  <!-- endbower -->
-  <!-- endbuild -->
-  <!-- build:css({.tmp,client}) app/app.css -->
-  <link rel="stylesheet" href="app/app.css">
-  <!-- injector:css -->
-  <link rel="stylesheet" href="app/account/login/login.css">
-  <link rel="stylesheet" href="app/admin/admin.css">
-  <link rel="stylesheet" href="app/admin/createUser/createUser.css">
-  <link rel="stylesheet" href="app/app.css">
-  <link rel="stylesheet" href="app/custom-bootstrap.css">
-  <link rel="stylesheet" href="app/instrument/instrumentPage/instrumentPage.css">
-  <link rel="stylesheet" href="app/instrument/logBook/logBook.css">
-  <link rel="stylesheet" href="app/instrument/model/model.css">
-  <link rel="stylesheet" href="app/main/main.css">
-  <link rel="stylesheet" href="app/ship/instrumentList/instrumentList.css">
-  <link rel="stylesheet" href="app/ship/shipList/shipList.css">
-  <link rel="stylesheet" href="components/menu/menu.css">
-  <link rel="stylesheet" href="components/modal/modal.css">
-  <!-- endinjector -->
-  <!-- endbuild -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="/">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(client) app/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="bower_components/angular-busy/dist/angular-busy.css"/>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,client}) app/app.css -->
+    <link rel="stylesheet" href="app/app.css">
+    <!-- injector:css -->
+    <link rel="stylesheet" href="app/account/login/login.css">
+    <link rel="stylesheet" href="app/admin/admin.css">
+    <link rel="stylesheet" href="app/admin/createUser/createUser.css">
+    <link rel="stylesheet" href="app/app.css">
+    <link rel="stylesheet" href="app/custom-bootstrap.css">
+    <link rel="stylesheet" href="app/instrument/instrumentPage/instrumentPage.css">
+    <link rel="stylesheet" href="app/instrument/logBook/logBook.css">
+    <link rel="stylesheet" href="app/instrument/model/model.css">
+    <link rel="stylesheet" href="app/main/main.css">
+    <link rel="stylesheet" href="app/ship/instrumentList/instrumentList.css">
+    <link rel="stylesheet" href="app/ship/shipList/shipList.css">
+    <link rel="stylesheet" href="components/menu/menu.css">
+    <link rel="stylesheet" href="components/modal/modal.css">
+    <!-- endinjector -->
+    <!-- endbuild -->
 </head>
 <body ng-app="primeMonitoringServicesApp">
 <!--[if lt IE 7]>
 <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
-  your browser</a> to improve your experience.</p>
+    your browser</a> to improve your experience.</p>
 <![endif]-->
 
 <!-- Add your site or application content here -->
 <div ng-include="'components/navbar/navbar.html'"></div>
+<div class="container-fluid page-container">
+    <div class="page-sidebar" ng-include="'components/menu/menu.html'"></div>
+    <div class="page-content" ui-view=""/>
+</div>
 
-<div class="container-fluid">
-  <div class="row">
-    <div ng-include="'components/menu/menu.html'"></div>
-    <div ui-view="" ></div>
-  </div>
-</div>
-</div>
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 <script>
-  (function (i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r;
-    i[r] = i[r] || function () {
-      (i[r].q = i[r].q || []).push(arguments)
-    }, i[r].l = 1 * new Date();
-    a = s.createElement(o),
-      m = s.getElementsByTagName(o)[0];
-    a.async = 1;
-    a.src = g;
-    m.parentNode.insertBefore(a, m)
-  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-  ga('create', 'UA-XXXXX-X');
-  ga('send', 'pageview');
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
 </script>
 
 <!--[if lt IE 9]>

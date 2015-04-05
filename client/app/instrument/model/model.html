@@ -1,32 +1,31 @@
-<div class="col-sm-9 col-sm-offset-3 col-md-11 col-md-offset-1 main" cg-busy="vm.promise">
-  <div class="row">
+<div class="row" cg-busy="vm.promise">
     <div class="col-lg-12">
 
-      <table class="table table-striped">
-        <thead>
-        <tr>
-          <th class="col-md-4">Instrument</th>
-          <th class="col-md-1">Instruments Count</th>
-          <th class="col-md-1">Operative</th>
-          <th class="col-md-1">Defective</th>
-          <th class="col-md-1">In Service</th>
-          <th class="col-md-1">Certificate Renewal</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="instrument in vm.instruments">
-          <td>
-            <a ui-sref="instrument({id: instrument.instrumentId})" class="">{{instrument.name}}</a>
-          </td>
-          <td>{{instrument.instrumentsCount}}</td>
-          <td>{{instrument.operative}}</td>
-          <td>{{instrument.defective}}</td>
-          <td>{{instrument.inService}}</td>
-          <td>{{instrument.certificateRenewal}}</td>
-        </tr>
-        </tbody>
-      </table>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th class="col-md-4">Instrument</th>
+                <th class="col-md-1">Instruments Count</th>
+                <th class="col-md-1">Operative</th>
+                <th class="col-md-1">Defective</th>
+                <th class="col-md-1">In Service</th>
+                <th class="col-md-1">Certificate Renewal</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="instrument in vm.instruments">
+                <td>
+                    <a ui-sref="instrument({id: instrument.instrumentId})" class="">{{instrument.name}}</a>
+                </td>
+                <td>{{instrument.instrumentsCount}}</td>
+                <td>{{instrument.operative}}</td>
+                <td>{{instrument.defective}}</td>
+                <td>{{instrument.inService}}</td>
+                <td>{{instrument.certificateRenewal}}</td>
+            </tr>
+            </tbody>
+        </table>
 
     </div>
-  </div>
 </div>
+
