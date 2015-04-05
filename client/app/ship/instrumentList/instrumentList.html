@@ -22,7 +22,7 @@
             </tr>
             <tr ng-hide="group.$hideRows" ng-repeat="instrument in group.data" class="ng-table-row">
                 <td sortable="instrument" data-title="'Instrument'">
-                    <a ui-sref="instrument({id: instrument.instrumentId})" class="">{{instrument.name}}</a>
+                    <a ui-sref="instrument({id: instrument.instrumentId, serial: instrument.sncode })" class="">{{instrument.name}}</a>
                 </td>
                 <td sortable="sncode" data-title="'Serial Number'">
                     {{instrument.sncode}}

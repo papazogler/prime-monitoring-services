@@ -5,4 +5,10 @@
   height: auto;
   margin-top: 15px;
   margin-bottom: 15px;
+  vertical-align: top;
+}
+
+.link {
+  vertical-align: top;
+  margin: 15px 15px;
 }

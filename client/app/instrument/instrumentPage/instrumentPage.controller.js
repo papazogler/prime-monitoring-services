@@ -4,11 +4,15 @@ angular.module('primeMonitoringServicesApp')
   .controller('InstrumentPageCtrl', function ($http, $stateParams, $cookieStore) {
     var vm = this;
 
-    vm.promise = $http.get('/api/instruments/'+ $stateParams.id).success(function (instrument) {
+    vm.promise = $http.get('/api/instruments/'+ $stateParams.id + '/' + $stateParams.serial ).success(function (instrument) {
       vm.instrument = instrument;
       vm.instrument.id = $stateParams.id;
+      vm.instrument.serial = $stateParams.serial;
       vm.imageMissing = !vm.instrument.image;
       vm.showNotFound = !vm.imageMissing;
+      vm.certificateMissing = !vm.instrument.certificateLink;
+      vm.webpageMissing = !vm.instrument.webpage;
+      vm.simulationMissing = !vm.instrument.simulation;
 
       for (var i = 0; i < vm.instrument.documents.length; i++) {
         var doc = vm.instrument.documents[i];
@@ -19,9 +23,6 @@ angular.module('primeMonitoringServicesApp')
         vm.instrument.spares = spares;
       });
 
-      vm.serialPromise = $http.get('/api/instruments/' + $stateParams.id + '/serials').success(function (serials) {
-        vm.instrument.serials = serials;
-      });
     });
 
     vm.tabData = [
@@ -36,10 +37,6 @@ angular.module('primeMonitoringServicesApp')
       {
         heading: 'Spare parts',
         route: 'instrument.spares'
-      },
-      {
-        heading: 'Instruments',
-        route: 'instrument.serials'
       }
     ];
 

@@ -10,7 +10,7 @@ angular.module('primeMonitoringServicesApp')
         controllerAs: 'vm'
       })
       .state('instrument', {
-        url: '/instruments/:id',
+        url: '/instruments/:id/:serial',
         templateUrl: 'app/instrument/instrumentPage/instrumentPage.html',
         controller: 'InstrumentPageCtrl',
         controllerAs: 'vm'
@@ -26,15 +26,5 @@ angular.module('primeMonitoringServicesApp')
       .state('instrument.spares', {
         url: '/#spares',
         templateUrl: 'app/instrument/instrumentPage/instrumentPageSpares.html'
-      })
-      .state('instrument.serials', {
-        url: '/#serials',
-        templateUrl: 'app/instrument/instrumentPage/instrumentPageSerials.html'
-      })
-      .state('logBook', {
-        url: '/instruments/:id/logbook/:sncode',
-        templateUrl: 'app/instrument/logBook/logBook.html',
-        controller: 'logBookCtrl',
-        controllerAs: 'vm'
       });
   });
