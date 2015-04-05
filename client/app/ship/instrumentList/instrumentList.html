@@ -14,7 +14,8 @@
             <tr class="ng-table-group">
                 <td colspan="4">
                     <div ng-click="group.$hideRows = !group.$hideRows">
-                        <span class="glyphicon" ng-class="{ 'glyphicon-chevron-right': group.$hideRows, 'glyphicon-chevron-down': !group.$hideRows }"></span>
+                        <span class="glyphicon"
+                              ng-class="{ 'glyphicon-chevron-right': group.$hideRows, 'glyphicon-chevron-down': !group.$hideRows }"></span>
                         Category: <strong>{{ group.value }}</strong>
                     </div>
                 </td>
@@ -27,12 +28,14 @@
                     {{instrument.sncode}}
                 </td>
                 <td sortable="certDate" data-title="'Certificate Expiry Date'">
-                    <div ng-class="vm.getClass(instrument.certDate)">
-                    {{instrument.certDate| date:'dd/MM/yyyy'}}
+                    <div ng-class="vm.getClassForDate(instrument.certDate)">
+                        {{instrument.certDate| date:'dd/MM/yyyy'}}
                     </div>
                 </td>
                 <td sortable="status" data-title="'Status'">
-                    {{instrument.status}}
+                    <div ng-class="vm.getClassForStatus(instrument.status)">
+                        {{instrument.status}}
+                    </div>
                 </td>
             </tr>
             </tbody>

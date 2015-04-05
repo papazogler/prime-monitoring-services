@@ -4,10 +4,10 @@ angular.module('primeMonitoringServicesApp')
 	.controller('InstrumentListCtrl', function ($http, $stateParams, $filter, ngTableParams) {
 		var vm = this;
 
-		vm.getClass = function (date) {
+		vm.getClassForDate = function (date) {
 			var curDate = new Date();
 			var expDate = Date.parse(date);
-			if(expDate <=  curDate) {
+			if (expDate <= curDate) {
 				return 'label label-danger';
 			}
 			curDate.setMonth(curDate.getMonth() + 1);
@@ -15,7 +15,31 @@ angular.module('primeMonitoringServicesApp')
 				return 'label label-warning';
 			}
 			return '';
-		}
+		};
+
+		vm.getClassForStatus = function (status) {
+			var myClass = '';
+			switch (status) {
+				case 'Operative':
+					myClass = 'label label-success';
+					break;
+				case 'Defective':
+					myClass = 'label label-warning';
+					break;
+				case 'Beyond Repair':
+					myClass = 'label label-danger';
+					break;
+				case 'In Service':
+					myClass = 'label label-info';
+					break;
+				case 'History':
+					myClass = 'label label-default';
+					break;
+			}
+
+			return myClass;
+		};
+
 
 		vm.promise = $http.get('/api/ships/' + $stateParams.id).success(function (instruments) {
 			if (instruments.length > 0) {
