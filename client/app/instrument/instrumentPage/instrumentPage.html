@@ -5,8 +5,8 @@
         <img ng-src="data:image/JPEG;base64,{{vm.instrument.image}}" ng-hide="vm.imageMissing" class="img-thumbnail">
         <img src="assets/images/imageNotFound.jpg" ng-show="vm.imageMissing" class="img-thumbnail">
         <a href="" ng-hide="vm.certificateMissing" class="link btn btn-success">Certificate</a>
-        <a href="vm.instrument.webpage" ng-hide="vm.webpageMissing" class="link btn btn-success">Webpage</a>
-        <a href="vm.instrument.simulation" ng-hide="vm.simulationMissing" class="link btn btn-success">Simulation</a>
+        <a href="{{vm.instrument.webpage}}" ng-hide="vm.webpageMissing" class="link btn btn-success">Webpage</a>
+        <a href="{{vm.instrument.simulation}}" ng-hide="vm.simulationMissing" class="link btn btn-success">Simulation</a>
     </div>
     <div class="row">
         <tabs class="nav nav-tabs nav-justified" data="vm.tabData" type='tabs'/>
