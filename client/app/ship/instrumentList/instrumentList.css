@@ -1,0 +1,26 @@
+.ng-table th{
+    font-size: larger;
+    text-align: left;
+}
+
+.ng-table-group{
+    background: #e0e0e0;
+    font-size: larger;
+    border: 1px solid #afccdb;
+}
+
+.ng-table-striped > tbody > tr.ng-table-row:nth-of-type(odd) {
+    background-color: #f9f9f9;
+    border: 1px solid #afccdb;
+}
+.ng-table-striped > tbody > tr.ng-table-row:nth-of-type(even) {
+    border: 1px solid #afccdb;
+}
+
+.label{
+    font-size: 14px;
+}
+
+.label-warning {
+    background-color: #f0df2a;
+}

@@ -7,7 +7,8 @@ angular.module('primeMonitoringServicesApp', [
   'ui.router',
   'ui.bootstrap',
   'ui.router.tabs',
-  'cgBusy'
+  'cgBusy',
+  'ngTable'
 ])
   .value('cgBusyDefaults', {
     backdrop: true,
