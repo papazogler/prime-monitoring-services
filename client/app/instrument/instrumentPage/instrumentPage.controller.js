@@ -8,6 +8,7 @@ angular.module('primeMonitoringServicesApp')
       vm.instrument = instrument;
       if(instrument.certificate) {
         vm.certificateLink = instrument.certificate.path;
+        vm.filename = instrument.certificate.name;
       }
       vm.instrument.id = $stateParams.id;
       vm.instrument.serial = $stateParams.serial;
