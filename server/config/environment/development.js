@@ -29,6 +29,7 @@ module.exports = {
   },
 
   certificateDir: './data/certs',
+  certificatePath: '/data/certs',
   tmpUploadDir: './data/tmp',
 
   seedDB: false

@@ -42,6 +42,7 @@ module.exports = {
 	},
 
 	certificateDir: process.env.OPENSHIFT_DATA_DIR,
+	certificatePath: process.env.OPENSHIFT_DATA_DIR,
 	tmpUploadDir: process.env.OPENSHIFT_TMP_DIR
 
 };

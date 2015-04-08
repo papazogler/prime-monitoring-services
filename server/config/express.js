@@ -33,7 +33,7 @@ module.exports = function(app) {
   app.use(multipart({
     uploadDir: config.certificateDir
   }));
-  app.use('/data/certs', express.static(config.certificateDir));
+  app.use(config.certificatePath, express.static(config.certificateDir));
   if ('production' === env) {
     app.use(favicon(path.join(config.root, 'public', 'favicon.ico')));
     app.use(express.static(path.join(config.root, 'public')));
