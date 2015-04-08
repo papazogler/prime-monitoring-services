@@ -28,5 +28,8 @@ module.exports = {
     appId: process.env.S1_APPID
   },
 
+  certificateDir: './data/certs',
+  tmpUploadDir: './data/tmp',
+
   seedDB: false
 };

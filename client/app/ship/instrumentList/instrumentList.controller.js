@@ -53,6 +53,7 @@ angular.module('primeMonitoringServicesApp')
 				counts: [], // hide page counts control
 				total: 1,  // value less than count hide pagination
 				groupBy: 'category',
+				orderBy: 'instrument',
 				getData: function ($defer, params) {
 					var orderedData = params.sorting() ?
 						$filter('orderBy')(instruments, vm.tableParams.orderBy()) :

@@ -8,7 +8,8 @@ angular.module('primeMonitoringServicesApp', [
   'ui.bootstrap',
   'ui.router.tabs',
   'cgBusy',
-  'ngTable'
+  'ngTable',
+  'angularFileUpload'
 ])
   .value('cgBusyDefaults', {
     backdrop: true,

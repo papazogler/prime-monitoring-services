@@ -1,0 +1,30 @@
+<h3>Certificates</h3>
+
+<a class="btn btn-primary" ui-sref="uploadCertificate">
+    Upload new certificate
+</a>
+
+<table class="table table-striped" cg-busy="vm.promise">
+    <thead>
+    <tr>
+        <th class="col-md-1">Instrument ID</th>
+        <th class="col-md-1">Serial Number</th>
+        <th class="col-md-1">Filename</th>
+        <th class="col-md-1">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="cert in vm.certificates">
+        <td>
+            <a ui-sref="editCertificate({id: cert._id})" class="">{{cert.instrumentId}}</a>
+        </td>
+        <td>{{cert.serialNo}}</td>
+        <td>{{cert.file.originalFilename}}</td>
+        <td>
+            <a ng-click="vm.delete(cert)" class="trash"><span class="glyphicon glyphicon-trash pull-right"></span></a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</div>

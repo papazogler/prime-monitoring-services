@@ -6,11 +6,14 @@ angular.module('primeMonitoringServicesApp')
 
     vm.promise = $http.get('/api/instruments/'+ $stateParams.id + '/' + $stateParams.serial ).success(function (instrument) {
       vm.instrument = instrument;
+      if(instrument.certificate) {
+        vm.certificateLink = instrument.certificate.path;
+      }
       vm.instrument.id = $stateParams.id;
       vm.instrument.serial = $stateParams.serial;
       vm.imageMissing = !vm.instrument.image;
       vm.showNotFound = !vm.imageMissing;
-      vm.certificateMissing = !vm.instrument.certificateLink;
+      vm.certificateMissing = !vm.certificateLink;
       vm.webpageMissing = !vm.instrument.webpage;
       vm.simulationMissing = !vm.instrument.simulation;
 

@@ -1,0 +1,42 @@
+<h3>Upload Certificate</h3>
+
+<form class="form" name="form" ng-submit="save(form)" novalidate>
+    <div class="form-group" ng-class="{ 'has-success': form.instrumentID.$valid && submitted,
+                                            'has-error': form.instrumentID.$invalid && submitted }">
+        <label>InstrumentID</label>
+        <input type="text" name="instrumentId" class="form-control" ng-model="instrumentID"
+               required/>
+
+        <p class="help-block" ng-show="form.instrumentID.$error.required && submitted">
+            An instrument id is required
+        </p>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-success': form.serial.$valid && submitted,
+                                            'has-error': form.serial.$invalid && submitted }">
+        <label>Serial Number</label>
+        <input type="text" name="serialNo" class="form-control" ng-model="serial"
+               required/>
+
+        <p class="help-block" ng-show="form.serial.$error.required && submitted">
+            A serial number id is required
+        </p>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-success': form.file.$valid && submitted,
+                                            'has-error': form.file.$invalid && submitted }">
+        <label>Certificate file</label>
+        <input type="file" ng-file-select="" ng-model="file" name="file" required="">
+
+        <p class="help-block" ng-show="form.file.$error.required && submitted">
+            A file is required
+        </p>
+        <span class="progress" ng-show="file.progress >= 0">
+            <div style="width:{{file.progress}}%" ng-bind="file.progress + '%'" class="ng-binding"></div>
+        </span>
+    </div>
+    <div>
+        <button ng-disabled="!form.$valid" class="btn btn-success" type="submit"> Save</button>
+    </div>
+</form>
+
