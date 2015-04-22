@@ -98,7 +98,6 @@ exports.logbook = function (req, res) {
 	s1query.execute(q, function (logs) {
 		var instr = {};
 		if (!!logs) {
-			instr.name = logs[0].name;
 			for (var i = 0; i < logs.length; i++) {
 				logs[i].date = new Date(Date.parse(logs[i].date));
 			}

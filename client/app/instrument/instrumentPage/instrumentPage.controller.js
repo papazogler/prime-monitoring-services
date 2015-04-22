@@ -27,6 +27,10 @@ angular.module('primeMonitoringServicesApp')
         vm.instrument.spares = spares;
       });
 
+      vm.logBookPromise = $http.get('/api/instruments/' + $stateParams.id + '/serials/' + $stateParams.serial).success(function (instr) {
+        //vm.modelName = instr.name;
+        vm.logs = instr.logs;
+      });
     });
 
     vm.tabData = [
@@ -41,6 +45,10 @@ angular.module('primeMonitoringServicesApp')
       {
         heading: 'Spare parts',
         route: 'instrument.spares'
+      },
+      {
+        heading: 'Log book',
+        route: 'instrument.logBook'
       }
     ];
 
