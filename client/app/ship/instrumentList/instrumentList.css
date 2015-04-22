@@ -2,6 +2,14 @@
     text-align: left;
 }
 
+.ng-table th.sort-asc:after {
+    content: '\25B2';
+}
+
+.ng-table th.sort-desc:after {
+    content: '\25BC';
+}
+
 .ng-table-group{
     background: #e0e0e0;
     font-size: larger;

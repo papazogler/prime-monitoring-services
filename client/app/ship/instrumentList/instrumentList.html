@@ -1,13 +1,38 @@
 <h3>{{vm.ShipName}}</h3>
 <div class="row" cg-busy="vm.promise">
     <div class="col-lg-12">
-        <table ng-table="vm.tableParams" class="table ng-table-striped">
+        <table ng-table="vm.tableParams" class="table ">
             <thead>
             <tr>
-                <th class="col-md-3">Instrument</th>
-                <th class="col-md-1">Serial Number</th>
-                <th class="col-md-1">Certificate Expiry Date</th>
-                <th class="col-md-1">Status</th>
+                <th class="col-md-3 " ng-class="{
+                    'sort-asc': vm.tableParams.isSortBy('name', 'asc'),
+                    'sort-desc': vm.tableParams.isSortBy('name', 'desc')
+                  }" ng-click="vm.tableParams.sorting({'name' : vm.tableParams.isSortBy('name', 'asc') ? 'desc' : 'asc'})">
+                    Instrument
+                </th>
+                <!--<th class="col-md-3">Instrument</th>-->
+
+                <th class="col-md-1" ng-class="{
+                    'sort-asc': vm.tableParams.isSortBy('sncode', 'asc'),
+                    'sort-desc': vm.tableParams.isSortBy('sncode', 'desc')
+                  }"
+                    ng-click="vm.tableParams.sorting({'sncode' : vm.tableParams.isSortBy('sncode', 'asc') ? 'desc' : 'asc'})">
+                    Serial Number
+                </th>
+                <th class="col-md-1" ng-class="{
+                    'sort-asc': vm.tableParams.isSortBy('certDate', 'asc'),
+                    'sort-desc': vm.tableParams.isSortBy('certDate', 'desc')
+                  }"
+                    ng-click="vm.tableParams.sorting({'certDate' : vm.tableParams.isSortBy('certDate', 'asc') ? 'desc' : 'asc'})">
+                    Certificate Expiry Date
+                </th>
+                <th class="col-md-1" ng-class="{
+                    'sort-asc': vm.tableParams.isSortBy('status', 'asc'),
+                    'sort-desc': vm.tableParams.isSortBy('status', 'desc')
+                  }"
+                    ng-click="vm.tableParams.sorting({'status' : vm.tableParams.isSortBy('status', 'asc') ? 'desc' : 'asc'})">
+                    Status
+                </th>
             </tr>
             </thead>
             <tbody ng-repeat="group in $groups">

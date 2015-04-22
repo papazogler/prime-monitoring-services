@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('primeMonitoringServicesApp')
-	.controller('InstrumentListCtrl', function ($http, $stateParams, $filter, ngTableParams) {
+	.controller('InstrumentListCtrl', function ($http, $stateParams, $filter, ngTableParams, $scope) {
 		var vm = this;
 
 		vm.getClassForDate = function (date) {
@@ -40,7 +40,6 @@ angular.module('primeMonitoringServicesApp')
 			return myClass;
 		};
 
-
 		vm.promise = $http.get('/api/ships/' + $stateParams.id).success(function (instruments) {
 			if (instruments.length > 0) {
 				vm.ShipName = instruments[0].ShipName;
@@ -53,13 +52,16 @@ angular.module('primeMonitoringServicesApp')
 				counts: [], // hide page counts control
 				total: 1,  // value less than count hide pagination
 				groupBy: 'category',
-				orderBy: 'instrument',
+				orderBy: ['category', 'name'],
 				getData: function ($defer, params) {
 					var orderedData = params.sorting() ?
-						$filter('orderBy')(instruments, vm.tableParams.orderBy()) :
-						instruments;
+						$filter('orderBy')(instruments, '[category, ' + vm.tableParams.orderBy() + ']') :
+						$filter('orderBy')(instruments, '[category, name]');
 					$defer.resolve(orderedData.slice((params.page() - 1) * params.count(), params.page() * params.count()));
 				}
 			});
+
+			vm.tableParams.sorting({'name':'asc'});
 		});
+
 	});
