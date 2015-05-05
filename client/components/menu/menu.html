@@ -3,7 +3,8 @@
   <ul class="nav nav-sidebar"><!--<ul class="nav navbar-nav side-nav">-->
     <li ng-show="vm.isAdmin()" ng-class="{active: vm.isActive('/admin')}"><a ui-sref="admin">Admin</a></li>
     <li ng-show="vm.isAdmin()" ng-class="{active: vm.isActive('/admin/certificates')}"><a ui-sref="adminCertificates">Certificates</a></li>
-    <li ng-show="vm.isShipHolder()" ng-class="{active: vm.isActive('/ship')}"><a ui-sref="ships">Inventory List</a></li>
+    <li ng-show="vm.isShipHolder()" ng-class="{active: vm.isActive('/inventory')}"><a ui-sref="ships">Inventory List</a></li>
     <!--<li ng-show="vm.isShipHolder()" ng-class="{active: vm.isActive('/instruments')}"><a ui-sref="model">Instruments</a> </li>-->
+    <li ng-class="{active: vm.isActive('/contacts')}"><a ui-sref="contacts">Contacts</a></li>
   </ul>
 </div>
