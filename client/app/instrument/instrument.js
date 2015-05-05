@@ -20,7 +20,7 @@ angular.module('primeMonitoringServicesApp')
 				templateUrl: 'app/instrument/instrumentPage/instrumentPageDocs.html'
 			})
 			.state('instrument.faq', {
-				url: '/#faq',
+				url: '/#media',
 				templateUrl: 'app/instrument/instrumentPage/instrumentPageFaq.html'
 			})
 			.state('instrument.spares', {
@@ -28,7 +28,7 @@ angular.module('primeMonitoringServicesApp')
 				templateUrl: 'app/instrument/instrumentPage/instrumentPageSpares.html'
 			})
 			.state('instrument.logBook', {
-				url: '/#logBook',
+				url: '/#records',
 				templateUrl: 'app/instrument/instrumentPage/instrumentPageLogBook.html'
 			});
 	});

@@ -1,27 +1,28 @@
+<h4 class="page-header">Inventory List</h4>
 <div class="row" cg-busy="vm.promise">
     <div class="col-lg-12">
 
         <table class="table table-striped">
             <thead>
             <tr>
-                <th class="col-md-2">Vessel</th>
-                <th class="col-md-1">Instruments Count</th>
-                <th class="col-md-1">Operative</th>
-                <th class="col-md-1">Defective</th>
-                <th class="col-md-1">In Service</th>
-                <th class="col-md-1">Certificate Renewal</th>
+                <th class="col-md-2 table-header-top">Vessel Name</th>
+                <th class="col-md-1 table-header-top table-header-center">Instruments Count</th>
+                <th class="col-md-1 table-header-top table-header-center">Operative</th>
+                <th class="col-md-1 table-header-top table-header-center">Defective</th>
+                <th class="col-md-1 table-header-top table-header-center">In Service</th>
+                <th class="col-md-1 table-header-top table-header-center">Certificate Renewal</th>
             </tr>
             </thead>
             <tbody>
             <tr ng-repeat="vessel in vm.vessels">
-                <td>
+                <td class="table-cell">
                     <a ui-sref="ship({id: vessel.ShipId})" class="">{{vessel.Name}}</a>
                 </td>
-                <td>{{vessel.InstrumentsCount}}</td>
-                <td>{{vessel.Operative}}</td>
-                <td>{{vessel.Defective}}</td>
-                <td>{{vessel.InService}}</td>
-                <td>{{vessel.CertificateRenewal}}</td>
+                <td class="table-cell-center">{{vessel.InstrumentsCount}}</td>
+                <td class="table-cell-center">{{vessel.Operative}}</td>
+                <td class="table-cell-center">{{vessel.Defective}}</td>
+                <td class="table-cell-center">{{vessel.InService}}</td>
+                <td class="table-cell-center">{{vessel.CertificateRenewal}}</td>
             </tr>
             </tbody>
         </table>

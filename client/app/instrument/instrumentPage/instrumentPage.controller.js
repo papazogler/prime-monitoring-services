@@ -39,7 +39,7 @@ angular.module('primeMonitoringServicesApp')
         route: 'instrument.docs'
       },
       {
-        heading: 'FAQ',
+        heading: 'Media',
         route: 'instrument.faq'
       },
       {
@@ -47,7 +47,7 @@ angular.module('primeMonitoringServicesApp')
         route: 'instrument.spares'
       },
       {
-        heading: 'Log book',
+        heading: 'Records',
         route: 'instrument.logBook'
       }
     ];

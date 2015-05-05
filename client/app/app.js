@@ -18,7 +18,7 @@ angular.module('primeMonitoringServicesApp', [
   })
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
-      .otherwise( '/ship');
+      .otherwise( '/inventory');
 
     $locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('authInterceptor');

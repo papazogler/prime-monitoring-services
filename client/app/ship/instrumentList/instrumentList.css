@@ -12,7 +12,6 @@
 
 .ng-table-group{
     background: #e0e0e0;
-    font-size: larger;
     border: 1px solid #afccdb;
 }
 
@@ -25,9 +24,22 @@
 }
 
 .label{
-    font-size: 14px;
+    font-size: 12px;
+}
+
+.label-success {
+    background-color: #8fa674 !important;
+}
+
+.label-info {
+    background-color: #506273 !important;
 }
 
 .label-warning {
-    background-color: #f0df2a;
+    color: #868686 !important;
+    background-color: #dbc79b !important;
+}
+
+.label-danger {
+    background-color: #c78b8e !important;
 }

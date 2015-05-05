@@ -1,10 +1,10 @@
-<h3>{{vm.ShipName}}</h3>
+<h4 class="page-header">{{vm.ShipName}}</h4>
 <div class="row" cg-busy="vm.promise">
     <div class="col-lg-12">
-        <table ng-table="vm.tableParams" class="table ">
+        <table ng-table="vm.tableParams" class="table">
             <thead>
             <tr>
-                <th class="col-md-3 " ng-class="{
+                <th class="col-md-3 table-header" ng-class="{
                     'sort-asc': vm.tableParams.isSortBy('name', 'asc'),
                     'sort-desc': vm.tableParams.isSortBy('name', 'desc')
                   }" ng-click="vm.tableParams.sorting({'name' : vm.tableParams.isSortBy('name', 'asc') ? 'desc' : 'asc'})">
@@ -12,21 +12,21 @@
                 </th>
                 <!--<th class="col-md-3">Instrument</th>-->
 
-                <th class="col-md-1" ng-class="{
+                <th class="col-md-1 table-header" ng-class="{
                     'sort-asc': vm.tableParams.isSortBy('sncode', 'asc'),
                     'sort-desc': vm.tableParams.isSortBy('sncode', 'desc')
                   }"
                     ng-click="vm.tableParams.sorting({'sncode' : vm.tableParams.isSortBy('sncode', 'asc') ? 'desc' : 'asc'})">
                     Serial Number
                 </th>
-                <th class="col-md-1" ng-class="{
+                <th class="col-md-1 table-header-center" ng-class="{
                     'sort-asc': vm.tableParams.isSortBy('certDate', 'asc'),
                     'sort-desc': vm.tableParams.isSortBy('certDate', 'desc')
                   }"
                     ng-click="vm.tableParams.sorting({'certDate' : vm.tableParams.isSortBy('certDate', 'asc') ? 'desc' : 'asc'})">
                     Certificate Expiry Date
                 </th>
-                <th class="col-md-1" ng-class="{
+                <th class="col-md-1 table-header-center" ng-class="{
                     'sort-asc': vm.tableParams.isSortBy('status', 'asc'),
                     'sort-desc': vm.tableParams.isSortBy('status', 'desc')
                   }"
@@ -46,18 +46,18 @@
                 </td>
             </tr>
             <tr ng-hide="group.$hideRows" ng-repeat="instrument in group.data" class="ng-table-row">
-                <td sortable="instrument" data-title="'Instrument'">
+                <td sortable="instrument" data-title="'Instrument'" class="table-cell">
                     <a ui-sref="instrument({id: instrument.instrumentId, serial: instrument.sncode })" class="">{{instrument.name}}</a>
                 </td>
-                <td sortable="sncode" data-title="'Serial Number'">
+                <td sortable="sncode" data-title="'Serial Number'" class="table-cell">
                     {{instrument.sncode}}
                 </td>
-                <td sortable="certDate" data-title="'Certificate Expiry Date'">
+                <td sortable="certDate" data-title="'Certificate Expiry Date'" class="table-cell-center">
                     <div ng-class="vm.getClassForDate(instrument.certDate)">
                         {{instrument.certDate| date:'dd/MM/yyyy'}}
                     </div>
                 </td>
-                <td sortable="status" data-title="'Status'">
+                <td sortable="status" data-title="'Status'" class="table-cell-center">
                     <div ng-class="vm.getClassForStatus(instrument.status)">
                         {{instrument.status}}
                     </div>
