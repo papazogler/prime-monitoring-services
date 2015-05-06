@@ -2,8 +2,9 @@
     <h4 class="page-header">{{vm.instrument.name}} - S/N: {{vm.instrument.serial}}</h4>
 
     <div class="row">
-        <img ng-src="data:image/JPEG;base64,{{vm.instrument.image}}" ng-hide="vm.imageMissing" class="img-thumbnail">
-        <img src="assets/images/imageNotFound.jpg" ng-show="vm.imageMissing" class="img-thumbnail">
+        <img ng-src="data:image/JPEG;base64,{{vm.instrument.image}}" ng-show="vm.showImage" class="img-thumbnail">
+        <img ng-src="{{vm.instrument.imageUrl}}" ng-show="vm.showIimageUrl" class="img-thumbnail">
+        <img src="assets/images/imageNotFound.jpg" ng-show="vm.showNotFound" class="img-thumbnail">
         <a target="_self" href="{{vm.certificateLink}}" ng-hide="vm.certificateMissing" download="{{vm.filename}}" class="link btn btn-success">Certificate</a>
         <a href="{{vm.instrument.webpage}}" ng-hide="vm.webpageMissing" class="link btn btn-success">Webpage</a>
         <a href="{{vm.instrument.simulation}}" ng-hide="vm.simulationMissing" class="link btn btn-success">Simulation</a>

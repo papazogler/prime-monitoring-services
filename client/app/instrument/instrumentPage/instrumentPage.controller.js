@@ -12,8 +12,9 @@ angular.module('primeMonitoringServicesApp')
       }
       vm.instrument.id = $stateParams.id;
       vm.instrument.serial = $stateParams.serial;
-      vm.imageMissing = !vm.instrument.image;
-      vm.showNotFound = !vm.imageMissing;
+      vm.showImage = !!vm.instrument.image;
+      vm.showIimageUrl = !!vm.instrument.imageUrl && !vm.showImage;
+      vm.showNotFound = !vm.showImage && !vm.showIimageUrl;
       vm.certificateMissing = !vm.certificateLink;
       vm.webpageMissing = !vm.instrument.webpage;
       vm.simulationMissing = !vm.instrument.simulation;

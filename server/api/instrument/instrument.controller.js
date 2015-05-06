@@ -19,19 +19,21 @@ exports.show = function (req, res) {
 	var sncode = decodeURIComponent(req.params.sncode);
 
 
-	var q = 'select m.name name, m.webpage, x.sodata image, xdoc.xdoc, xdoc.name docname, me.VARCHAR04 simlink, d.sncode from mtrl m inner join mtrdoc d on m.mtrl = d.mtrl inner join mtrextra me on me.mtrl = m.mtrl inner join xtrdocdata x on m.mtrl = x.Refobjid left outer join xdoc on x.xdoc= xdoc.xdoc where m.mtrl = ' + instrumentId + ' and d.sncode = \'' + sncode + '\' order by x.lnum';
+	var q = 'select m.name name, m.webpage, x.sofname imageurl, x.sodata image, xdoc.xdoc, xdoc.name docname, me.VARCHAR04 simlink from mtrl m inner join mtrextra me on me.mtrl = m.mtrl inner join xtrdocdata x on m.mtrl = x.Refobjid left outer join xdoc on x.xdoc= xdoc.xdoc where m.mtrl = ' + instrumentId + 'order by x.lnum';
 
 	s1query.execute(q, function (instruments) {
 		var instrument = {};
 		instrument.documents = [];
 		var imageid;
 		for (var i = 0; i < instruments.length; i++) {
-			instrument.serial = instruments[i].sncode;
+			instrument.serial = sncode;
 			instrument.name = instruments[i].name;
 			instrument.webpage = instruments[i].webpage;
 			instrument.simulation = instruments[i].simlink;
 			if (instruments[i].image) {
 				imageid = instruments[i].image;
+			}else if (instruments[i].imageurl && !instruments[i].xdoc){
+				instrument.imageUrl = instruments[i].imageurl;
 			}
 			if (instruments[i].xdoc) {
 				instrument.documents.push({docId: instruments[i].xdoc, name: instruments[i].docname});
