@@ -70,7 +70,7 @@ exports.show = function (req, res) {
 
 exports.spares = function (req, res) {
 	var instrumentId = req.params.id;
-	var q = 'select m.code2 code, m.name from CCCS1PARTSLNK c inner join mtrl m on m.mtrl = c.mtrl where c.item = ' + instrumentId + ' order by m.code2';
+	var q = 'select m.code code, m.name from CCCS1PARTSLNK c inner join mtrl m on m.mtrl = c.mtrl where c.item = ' + instrumentId + ' order by m.code';
 	s1query.execute(q, function (spares) {
 		return res.json(spares);
 	});
